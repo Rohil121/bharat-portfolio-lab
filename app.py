@@ -37,6 +37,20 @@ pages = {
             title="Forecasting & Risk Models",
             icon="📈",
         ),
+
+
+        st.Page(
+            "app_pages/optimisation_stress.py",
+            title="Optimisation & Stress Testing",
+            icon="⚖️",
+        ),
+
+
+        st.Page(
+            "app_pages/user_portfolio_lab.py",
+            title="User Portfolio Lab",
+            icon="🧮",
+        ),
     ],
 }
 

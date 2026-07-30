@@ -57,3 +57,25 @@ Future versions will add:
 ## Disclaimer
 
 This project is intended for academic and educational purposes and does not constitute investment advice.
+<!-- V0.5-RELEASE-CANDIDATE -->
+
+## v0.5 Release Candidate — User Portfolio Lab
+
+Bharat Portfolio Lab v0.5 introduces an interactive portfolio-analysis workflow for Indian listed equities.
+
+Users can enter NSE or BSE holdings using weights, invested amounts or share quantities and run:
+
+- Portfolio performance and diversification analysis
+- Minimum-volatility, maximum-Sharpe and risk-parity optimisation
+- Efficient-frontier analysis
+- Historical stress testing
+- VaR and Expected Shortfall
+- Block-bootstrap Monte Carlo simulation
+- Bull, base and bear scenarios
+- Downloadable analysis datasets
+
+BSE quantity valuation uses available BSE prices. When sufficient BSE historical data is unavailable, the corresponding NSE history may be used for return analytics with a visible disclosure.
+
+Read the complete [v0.5.0 release candidate notes](docs/releases/v0.5.0.md).
+
+> v0.5 remains on its feature branch until final review, merge and deployment.

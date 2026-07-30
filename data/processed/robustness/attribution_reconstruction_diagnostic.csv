@@ -1,0 +1,3 @@
+Weight Convention,Full-Period Mean Absolute Error (bps),Full-Period Maximum Absolute Error (bps),OOS Mean Absolute Error (bps),OOS Maximum Absolute Error (bps),OOS Return Correlation
+Previous-Day Weights,0.5282532079749621,59.41853161515832,0.47799988764872137,59.41853161515832,0.9990390964803952
+Same-Day Recorded Weights,2.0138432987961883,57.65955879482185,1.6382575441214258,57.65955879482185,0.9994619175669766

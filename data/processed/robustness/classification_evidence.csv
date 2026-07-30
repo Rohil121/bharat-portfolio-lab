@@ -1,0 +1,11 @@
+Test,Result,Observed Evidence
+Out-of-sample return preserved,True,-0.21% CAGR difference
+Out-of-sample Sharpe improved,True,1.03 vs 0.77
+Out-of-sample drawdown improved,True,-14.79% vs -35.86%
+108-combination parameter grid robust,True,108 combinations; 100% beat fixed Sharpe
+Transaction-cost stress test passed,True,0.71% CAGR drag at 0.50% cost
+Risk reduction consistent across market states,True,4 of 4 volatility checks passed
+Top-two holding contribution acceptable,False,46.72%
+Growth-bucket contribution acceptable,False,79.17%
+Point-in-time universe available,False,Not yet available
+External-universe validation completed,False,Not yet completed

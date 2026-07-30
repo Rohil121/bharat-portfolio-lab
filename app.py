@@ -356,21 +356,25 @@ comparison_table = pd.DataFrame(
     }
 )
 
-display_table = comparison_table.copy()
+# Create a separate object-type table for formatted text
+# Pandas 3.x does not allow strings inside float64 columns.
+display_table = comparison_table.copy().astype(object)
 
-for row in [
+percentage_rows = [
     "Total Return",
     "CAGR",
     "Volatility",
     "Maximum Drawdown",
-]:
-    display_table.loc[row] = (
+]
+
+for row in percentage_rows:
+    display_table.loc[row, :] = (
         comparison_table.loc[row]
         .astype(float)
         .map(lambda value: f"{value:.2%}")
     )
 
-display_table.loc["Sharpe Ratio"] = (
+display_table.loc["Sharpe Ratio", :] = (
     comparison_table.loc["Sharpe Ratio"]
     .astype(float)
     .map(lambda value: f"{value:.2f}")

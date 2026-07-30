@@ -1,0 +1,8 @@
+Metric,Result
+Final Robustness Classification,Moderately robust
+Parameter Combinations Tested,108
+Out-of-Sample CAGR Difference vs Fixed,-0.002108205474091296
+Top-Two Holding Contribution Share,0.46717588608281657
+Growth Bucket Contribution Share,0.7917477624674581
+Point-in-Time Universe Available,False
+External-Universe Validation Completed,False

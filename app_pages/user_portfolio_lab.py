@@ -1058,9 +1058,10 @@ def render_user_portfolio_lab():
                     st.column_config.TextColumn(
                         "Ticker",
                         help=(
-                            "Enter the NSE/BSE symbol without "
-                            "the .NS or .BO suffix."
-                        ),
+    "Enter the trading symbol without the .NS or .BO "
+    "suffix. For BSE, use a trading symbol such as "
+    "HDFCBANK rather than numeric scrip code 500180."
+),
                         required=True,
                     ),
 

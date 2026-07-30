@@ -33,17 +33,23 @@ SUPPORTED_INPUT_MODES = {
 }
 
 
+
 def standardise_indian_ticker(
     ticker: str,
     exchange: str = "NSE",
 ) -> str:
     """
-    Convert a user-entered symbol into Yahoo Finance format.
+    Convert a user-entered Indian trading symbol into
+    Yahoo Finance format.
 
-    Examples
-    --------
-    HDFCBANK with NSE becomes HDFCBANK.NS.
-    500180 with BSE becomes 500180.BO.
+    NSE example:
+        HDFCBANK becomes HDFCBANK.NS
+
+    BSE example:
+        HDFCBANK becomes HDFCBANK.BO
+
+    Numeric BSE scrip codes are rejected because the current
+    market-data source expects the BSE trading symbol.
     """
 
     clean_ticker = str(
@@ -59,18 +65,52 @@ def standardise_indian_ticker(
             "Ticker cannot be blank."
         )
 
-    if clean_ticker.endswith(
-        (
-            ".NS",
-            ".BO",
+    has_nse_suffix = (
+        clean_ticker.endswith(
+            ".NS"
         )
-    ):
+    )
+
+    has_bse_suffix = (
+        clean_ticker.endswith(
+            ".BO"
+        )
+    )
+
+    if has_nse_suffix or has_bse_suffix:
+
+        ticker_without_suffix = (
+            clean_ticker[:-3]
+        )
+
+        if (
+            has_bse_suffix
+            and ticker_without_suffix.isdigit()
+        ):
+            raise ValueError(
+                "Numeric BSE scrip codes are not supported by "
+                "the current market-data source. Enter the BSE "
+                "trading symbol instead. For example, enter "
+                "HDFCBANK rather than 500180."
+            )
+
         return clean_ticker
 
     if clean_exchange not in SUPPORTED_EXCHANGES:
         raise ValueError(
             f"Unsupported exchange: {exchange}. "
             "Use NSE or BSE."
+        )
+
+    if (
+        clean_exchange == "BSE"
+        and clean_ticker.isdigit()
+    ):
+        raise ValueError(
+            "Numeric BSE scrip codes are not supported by "
+            "the current market-data source. Enter the BSE "
+            "trading symbol instead. For example, enter "
+            "HDFCBANK rather than 500180."
         )
 
     return (

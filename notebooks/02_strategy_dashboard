@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyMzzQ6gQgDv9WGOT0LyrFRX",
+      "authorship_tag": "ABX9TyNFzwq0OyMHrhokDlxMRTCp",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -4424,6 +4424,217 @@
           "name": "stdout",
           "text": [
             "-rw-r--r-- 1 root root 4.4K Jul 30 09:42 app_v02.py\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from pathlib import Path\n",
+        "\n",
+        "app_path = Path(\"app_v02.py\")\n",
+        "app_code = app_path.read_text()\n",
+        "\n",
+        "marker = \"\"\"# ---------------------------------------------------------\n",
+        "# Preliminary layout\n",
+        "# ---------------------------------------------------------\"\"\"\n",
+        "\n",
+        "market_data_block = \"\"\"# ---------------------------------------------------------\n",
+        "# Historical market data\n",
+        "# ---------------------------------------------------------\n",
+        "\n",
+        "@st.cache_data(ttl=3600)\n",
+        "def download_market_data(\n",
+        "    tickers,\n",
+        "    benchmark_ticker,\n",
+        "    selected_start_date,\n",
+        "):\n",
+        "    all_tickers = tickers + [benchmark_ticker]\n",
+        "\n",
+        "    download_end_date = (\n",
+        "        pd.Timestamp.today().normalize()\n",
+        "        + pd.Timedelta(days=1)\n",
+        "    )\n",
+        "\n",
+        "    raw_data = yf.download(\n",
+        "        tickers=all_tickers,\n",
+        "        start=str(selected_start_date),\n",
+        "        end=download_end_date.strftime(\"%Y-%m-%d\"),\n",
+        "        auto_adjust=True,\n",
+        "        progress=False,\n",
+        "        threads=True,\n",
+        "    )\n",
+        "\n",
+        "    if raw_data.empty:\n",
+        "        raise ValueError(\n",
+        "            \"No market data was returned for the selected period.\"\n",
+        "        )\n",
+        "\n",
+        "    if isinstance(raw_data.columns, pd.MultiIndex):\n",
+        "\n",
+        "        if \"Close\" not in raw_data.columns.get_level_values(0):\n",
+        "            raise ValueError(\n",
+        "                \"Adjusted closing prices were not returned.\"\n",
+        "            )\n",
+        "\n",
+        "        prices = raw_data[\"Close\"].copy()\n",
+        "\n",
+        "    else:\n",
+        "        prices = raw_data[[\"Close\"]].copy()\n",
+        "        prices.columns = all_tickers\n",
+        "\n",
+        "    prices = (\n",
+        "        prices\n",
+        "        .reindex(columns=all_tickers)\n",
+        "        .sort_index()\n",
+        "    )\n",
+        "\n",
+        "    completely_missing_tickers = (\n",
+        "        prices.columns[\n",
+        "            prices.isna().all()\n",
+        "        ].tolist()\n",
+        "    )\n",
+        "\n",
+        "    if completely_missing_tickers:\n",
+        "        raise ValueError(\n",
+        "            \"No price history was found for: \"\n",
+        "            + \", \".join(completely_missing_tickers)\n",
+        "        )\n",
+        "\n",
+        "    prices = (\n",
+        "        prices\n",
+        "        .ffill(limit=3)\n",
+        "        .dropna()\n",
+        "    )\n",
+        "\n",
+        "    if len(prices) <= TREND_LOOKBACK:\n",
+        "        raise ValueError(\n",
+        "            \"The selected period does not contain enough data \"\n",
+        "            \"for the 200-day trend calculation. \"\n",
+        "            \"Choose an earlier start date.\"\n",
+        "        )\n",
+        "\n",
+        "    return prices\n",
+        "\n",
+        "\n",
+        "try:\n",
+        "\n",
+        "    with st.spinner(\n",
+        "        \"Downloading and validating Indian market data...\"\n",
+        "    ):\n",
+        "\n",
+        "        close_prices = download_market_data(\n",
+        "            portfolio_tickers,\n",
+        "            BENCHMARK_TICKER,\n",
+        "            start_date,\n",
+        "        )\n",
+        "\n",
+        "except Exception as error:\n",
+        "\n",
+        "    st.error(\n",
+        "        f\"Market data could not be prepared: {error}\"\n",
+        "    )\n",
+        "\n",
+        "    st.stop()\n",
+        "\n",
+        "\n",
+        "stock_prices = (\n",
+        "    close_prices[portfolio_tickers]\n",
+        "    .copy()\n",
+        ")\n",
+        "\n",
+        "benchmark_prices = (\n",
+        "    close_prices[[BENCHMARK_TICKER]]\n",
+        "    .rename(\n",
+        "        columns={\n",
+        "            BENCHMARK_TICKER: BENCHMARK_NAME\n",
+        "        }\n",
+        "    )\n",
+        ")\n",
+        "\n",
+        "if stock_prices.shape[1] != 10:\n",
+        "\n",
+        "    st.error(\n",
+        "        \"Historical data is not available for all 10 holdings.\"\n",
+        "    )\n",
+        "\n",
+        "    st.stop()\n",
+        "\n",
+        "\n",
+        "st.caption(\n",
+        "    f\"Market data period: \"\n",
+        "    f\"{close_prices.index.min().date()} to \"\n",
+        "    f\"{close_prices.index.max().date()} | \"\n",
+        "    f\"{len(close_prices):,} trading observations\"\n",
+        ")\n",
+        "\n",
+        "\n",
+        "\"\"\"\n",
+        "\n",
+        "if marker not in app_code:\n",
+        "    raise ValueError(\n",
+        "        \"The preliminary-layout marker was not found in app_v02.py.\"\n",
+        "    )\n",
+        "\n",
+        "updated_app_code = app_code.replace(\n",
+        "    marker,\n",
+        "    market_data_block + marker,\n",
+        "    1,\n",
+        ")\n",
+        "\n",
+        "app_path.write_text(updated_app_code)\n",
+        "\n",
+        "print(\"Market-data pipeline added to app_v02.py.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "i36cnKEtaFDx",
+        "outputId": "707b7077-8872-452f-d8a1-84af6a51501c"
+      },
+      "execution_count": 25,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Market-data pipeline added to app_v02.py.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!python -m py_compile app_v02.py"
+      ],
+      "metadata": {
+        "id": "a5ZpjSRqaH5k"
+      },
+      "execution_count": 26,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!grep -n \"Historical market data\" app_v02.py"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1-fcp-JZaJlh",
+        "outputId": "f7e0a10a-906b-4520-d98c-1310c5c4967d"
+      },
+      "execution_count": 27,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "167:# Historical market data\n"
           ]
         }
       ]

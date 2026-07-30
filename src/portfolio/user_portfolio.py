@@ -665,11 +665,17 @@ def download_user_market_data(
     benchmark: str = "^NSEI",
     minimum_observations: int = 252,
     forward_fill_limit: int = 3,
+    allow_bse_history_fallback: bool = True,
 ) -> dict[str, Any]:
     """
-    Download and align historical user-portfolio and benchmark data.
+    Download and align historical portfolio and benchmark data.
 
-    The supplied end date is treated as inclusive.
+    The supplied end date is inclusive.
+
+    For a selected BSE stock with insufficient historical data,
+    the function may use the same trading symbol's NSE history.
+    The portfolio continues to display the selected BSE ticker,
+    while the substitution is disclosed in the data-quality table.
     """
 
     start_timestamp, end_timestamp = (
@@ -724,8 +730,12 @@ def download_user_market_data(
         benchmark
     ).strip().upper()
 
-    requested_tickers = (
+    selected_tickers = (
         weights.index.tolist()
+    )
+
+    requested_tickers = (
+        selected_tickers
         + [
             benchmark_ticker
         ]
@@ -757,29 +767,144 @@ def download_user_market_data(
         requested_tickers=requested_tickers,
     )
 
-    missing_tickers = [
-        ticker
-        for ticker in requested_tickers
-        if ticker not in raw_close_prices.columns
-    ]
-
-    if missing_tickers:
-        raise ValueError(
-            "No price column was returned for: "
-            + ", ".join(
-                missing_tickers
-            )
-        )
-
+    # Reindex creates blank columns for tickers that Yahoo omitted,
+    # allowing them to be evaluated for fallback.
     raw_close_prices = (
-        raw_close_prices[
-            requested_tickers
-        ]
+        raw_close_prices
+        .reindex(
+            columns=requested_tickers
+        )
         .loc[
             start_timestamp:
             end_timestamp
         ]
     )
+
+    original_observations = {
+        ticker: int(
+            raw_close_prices[
+                ticker
+            ]
+            .notna()
+            .sum()
+        )
+        for ticker in requested_tickers
+    }
+
+    historical_source_map = {
+        ticker: ticker
+        for ticker in requested_tickers
+    }
+
+    fallback_used_map = {
+        ticker: False
+        for ticker in requested_tickers
+    }
+
+    fallback_pairs = {}
+
+    if allow_bse_history_fallback:
+
+        for selected_ticker in selected_tickers:
+
+            if (
+                selected_ticker.endswith(
+                    ".BO"
+                )
+                and original_observations[
+                    selected_ticker
+                ]
+                < minimum_observations
+            ):
+
+                fallback_pairs[
+                    selected_ticker
+                ] = (
+                    selected_ticker[:-3]
+                    + ".NS"
+                )
+
+    if fallback_pairs:
+
+        fallback_tickers = list(
+            dict.fromkeys(
+                fallback_pairs.values()
+            )
+        )
+
+        fallback_raw_data = yf.download(
+            tickers=fallback_tickers,
+            start=start_timestamp.strftime(
+                "%Y-%m-%d"
+            ),
+            end=inclusive_download_end.strftime(
+                "%Y-%m-%d"
+            ),
+            auto_adjust=True,
+            progress=False,
+            group_by="column",
+            threads=True,
+        )
+
+        if not fallback_raw_data.empty:
+
+            fallback_prices = (
+                _extract_close_prices(
+                    raw_data=fallback_raw_data,
+                    requested_tickers=fallback_tickers,
+                )
+                .reindex(
+                    columns=fallback_tickers
+                )
+                .loc[
+                    start_timestamp:
+                    end_timestamp
+                ]
+            )
+
+            for (
+                selected_bse_ticker,
+                fallback_nse_ticker,
+            ) in fallback_pairs.items():
+
+                if (
+                    fallback_nse_ticker
+                    not in fallback_prices.columns
+                ):
+                    continue
+
+                fallback_series = (
+                    fallback_prices[
+                        fallback_nse_ticker
+                    ]
+                    .dropna()
+                )
+
+                if (
+                    len(
+                        fallback_series
+                    )
+                    >= minimum_observations
+                ):
+
+                    raw_close_prices[
+                        selected_bse_ticker
+                    ] = (
+                        fallback_prices[
+                            fallback_nse_ticker
+                        ]
+                        .reindex(
+                            raw_close_prices.index
+                        )
+                    )
+
+                    historical_source_map[
+                        selected_bse_ticker
+                    ] = fallback_nse_ticker
+
+                    fallback_used_map[
+                        selected_bse_ticker
+                    ] = True
 
     quality_records = []
 
@@ -807,6 +932,11 @@ def download_user_market_data(
                 "Ticker":
                     ticker,
 
+                "Original Valid Observations":
+                    original_observations[
+                        ticker
+                    ],
+
                 "Valid Observations":
                     valid_observations,
 
@@ -826,6 +956,16 @@ def download_user_market_data(
                         valid_observations
                         >= minimum_observations
                     ),
+
+                "Historical Source":
+                    historical_source_map[
+                        ticker
+                    ],
+
+                "Fallback Used":
+                    fallback_used_map[
+                        ticker
+                    ],
             }
         )
 
@@ -852,6 +992,8 @@ def download_user_market_data(
             + ", ".join(
                 insufficient_tickers
             )
+            + ". Try a later start date or an NSE-listed "
+            "equivalent."
         )
 
     cleaned_prices = (
@@ -870,7 +1012,7 @@ def download_user_market_data(
 
     portfolio_prices = (
         cleaned_prices[
-            weights.index
+            selected_tickers
         ]
         .copy()
     )
@@ -910,7 +1052,7 @@ def download_user_market_data(
 
     portfolio_returns = (
         aligned_returns[
-            weights.index
+            selected_tickers
         ]
     )
 
@@ -948,6 +1090,16 @@ def download_user_market_data(
 
         "data_quality":
             data_quality,
+
+        "historical_source_map":
+            historical_source_map,
+
+        "bse_history_fallback_used":
+            bool(
+                any(
+                    fallback_used_map.values()
+                )
+            ),
 
         "benchmark_ticker":
             benchmark_ticker,

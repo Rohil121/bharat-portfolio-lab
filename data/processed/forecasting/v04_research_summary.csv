@@ -1,0 +1,5 @@
+Research Area,Selected Model,Primary Result,Decision
+ARIMA return forecasting,"ARIMA(2, 0, 3)",Did not beat the zero-return benchmark,Do not use as a directional allocation signal
+Dynamic volatility forecasting,"GJR-GARCH(1,1) — Student's t","Best volatility MAE, RMSE, variance MSE and realised-risk correlation",Use for dynamic risk monitoring
+Volatility challenger,EWMA Volatility — 0.94,Best out-of-sample QLIKE score,Use as fallback dynamic-risk model
+Portfolio allocation,63-Day Historical Volatility,"Outperformed GJR-GARCH allocation on CAGR, Sharpe, drawdown, Calmar and trading costs",Retain as default allocation input

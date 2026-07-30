@@ -1,0 +1,7 @@
+,Test Statistic,P-Value,Interpretation at 5%
+Ljung–Box Standardised Residuals — 10 Lags,18.6371320816908,0.04512119894786242,Residual autocorrelation remains
+Ljung–Box Standardised Residuals — 20 Lags,34.77397396426044,0.02134164965052814,Residual autocorrelation remains
+Ljung–Box Squared Residuals — 10 Lags,8.356164264855789,0.5940905201102364,No significant squared-residual dependence
+Ljung–Box Squared Residuals — 20 Lags,17.929049341443434,0.5920822099008272,No significant squared-residual dependence
+ARCH LM Remaining Volatility Clustering — 10 Lags,8.313762917139783,0.598218305045558,No significant remaining ARCH effects
+Jarque–Bera Distribution Diagnostic,144.1490382878881,4.993833402977972e-32,Non-normality remains; acceptable under Student's t

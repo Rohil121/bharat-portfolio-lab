@@ -1,0 +1,4 @@
+Scenario,Highest-Return Portfolio,Highest Portfolio Return,Lowest-Risk Portfolio,Lowest Stressed Volatility
+Bear,Maximum Sharpe,-0.0402086504368593,Minimum Volatility,0.17572610153532234
+Base,Maximum Sharpe,0.23736199903103639,Minimum Volatility,0.11715073435688156
+Bull,Maximum Sharpe,0.3563208488029917,Minimum Volatility,0.09957812420334933

@@ -1,0 +1,7 @@
+,Research Area,Finding,Evidence,Limitation
+0,Core Optimisation,Maximum Sharpe generated the strongest out-of-sample CAGR and Sharpe ratio.,CAGR 17.26%; Sharpe 0.66,Maximum Sharpe had the highest turnover and largest maximum drawdown.
+1,Minimum Volatility,Minimum Volatility reduced annualised risk but did not improve realised returns.,Volatility 12.72%; CAGR 6.63%,Lower volatility did not guarantee a smaller drawdown during prolonged market weakness.
+2,Risk Parity,Risk Parity provided the most balanced risk allocation and broad diversification.,Maximum India 10 weight 13.89%,Its return and Sharpe remained below the current portfolio and Maximum Sharpe.
+3,Stress Testing,No optimisation method dominated across all realised stress periods.,Maximum Sharpe won three stress windows; Minimum Volatility won two.,Stress-period leadership was dependent on crisis type and duration.
+4,Monte Carlo Risk,Maximum Sharpe had the lowest simulated one-year probability of loss.,Probability of loss 8.07%,Simulation results depend on historical blocks and shrunk expected-return assumptions.
+5,User Portfolio Lab,The complete optimisation and risk pipeline works for arbitrary NSE and BSE portfolios.,"Validated using a six-stock portfolio with weight, amount and quantity input support.",Stocks require sufficient aligned historical price observations.

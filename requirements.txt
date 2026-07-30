@@ -3,3 +3,7 @@ yfinance
 pandas
 numpy
 matplotlib
+
+# Production dependencies detected by import audit
+scikit-learn>=1.6
+scipy>=1.16

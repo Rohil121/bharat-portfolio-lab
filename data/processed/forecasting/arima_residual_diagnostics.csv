@@ -1,0 +1,5 @@
+,Test Statistic,P-Value,Result at 5%
+Ljung–Box Residual Autocorrelation — 10 Lags,18.888827965363014,0.002015961604447404,Residual autocorrelation remains
+Ljung–Box Residual Autocorrelation — 20 Lags,23.340718363578755,0.07716883506860271,No significant residual autocorrelation
+ARCH LM Volatility Clustering — 10 Lags,579.1629642430643,5.119785324419517e-118,ARCH effects remain
+Jarque–Bera Residual Normality,25942.247475893735,0.0,Residuals are non-normal

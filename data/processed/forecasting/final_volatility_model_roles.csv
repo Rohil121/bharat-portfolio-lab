@@ -1,0 +1,4 @@
+Platform Role,Selected Model,Evidence
+Default portfolio allocation,63-Day Historical Volatility,"Better CAGR, Sharpe, drawdown, Calmar and trading efficiency"
+Dynamic risk monitoring,"GJR-GARCH(1,1) — Student's t","Best dynamic volatility MAE, RMSE, variance MSE and correlation"
+Dynamic-risk fallback,EWMA Volatility — 0.94,Best QLIKE with low computational complexity

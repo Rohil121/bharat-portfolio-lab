@@ -641,6 +641,44 @@ def render_portfolio_overview(
         if column in portfolio_table.columns
     ]
 
+    if market_data.get(
+        "bse_history_fallback_used",
+        False,
+    ):
+
+        fallback_table = (
+            market_data[
+                "data_quality"
+            ]
+            .loc[
+                market_data[
+                    "data_quality"
+                ][
+                    "Fallback Used"
+                ]
+            ]
+        )
+
+        fallback_description = ", ".join(
+            (
+                f"{selected_ticker} → "
+                f"{row['Historical Source']}"
+            )
+            for selected_ticker, row in (
+                fallback_table.iterrows()
+            )
+        )
+
+        st.warning(
+            "BSE historical-data substitution: the selected "
+            "BSE ticker remains in the portfolio and its BSE "
+            "price is used for quantity valuation. Because the "
+            "market-data provider supplied insufficient BSE "
+            "history, the corresponding NSE series was used "
+            "for return analytics. "
+            f"Substitutions: {fallback_description}."
+        )
+
     st.dataframe(
         portfolio_table[
             display_columns

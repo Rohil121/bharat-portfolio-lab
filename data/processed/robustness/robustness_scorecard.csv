@@ -1,0 +1,11 @@
+Test,Observed Result,Maximum Points,Points Awarded
+Out-of-sample CAGR preservation,-0.21% vs fixed portfolio,10,9.3
+Out-of-sample Sharpe improvement,+0.27 Sharpe advantage,10,10.0
+Out-of-sample drawdown improvement,21.07% improvement,10,10.0
+Parameter CAGR stability,100.00% successful combinations,10,10.0
+Parameter Sharpe stability,100.00% successful combinations,10,10.0
+Parameter drawdown stability,100.00% successful combinations,10,10.0
+High transaction-cost resilience,0.71% CAGR drag at 0.50% cost,10,10.0
+Rolling volatility consistency,98.41% of periods,10,9.84
+Rolling drawdown consistency,89.14% of periods,10,8.91
+Defensive-regime effectiveness,"Return, volatility, drawdown and Sharpe checks",10,10.0

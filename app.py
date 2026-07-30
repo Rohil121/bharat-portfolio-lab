@@ -9,7 +9,7 @@ import yfinance as yf
 
 
 st.set_page_config(
-    page_title="Bharat Portfolio Lab v0.3",
+    page_title="Bharat Portfolio Lab v0.3.1",
     page_icon="📊",
     layout="wide",
 )
@@ -25,7 +25,7 @@ st.subheader("India 10 Adaptive Barbell Portfolio")
 
 st.markdown(
     """
-    **Version v0.3 — Robustness Dashboard**
+    **Version v0.3.1 — Complete Robustness and Attribution**
 
     This version analyses a 10-stock Indian equity portfolio and compares:
 
@@ -110,6 +110,46 @@ def load_robustness_data():
         "final_robustness_assessment":
             ROBUSTNESS_DATA_DIRECTORY
             / "final_robustness_assessment.csv",
+
+        "attribution_reconstruction_diagnostic":
+            ROBUSTNESS_DATA_DIRECTORY
+            / "attribution_reconstruction_diagnostic.csv",
+
+        "bucket_attribution":
+            ROBUSTNESS_DATA_DIRECTORY
+            / "bucket_attribution.csv",
+
+        "bull_bear_performance":
+            ROBUSTNESS_DATA_DIRECTORY
+            / "bull_bear_performance.csv",
+
+        "classification_evidence":
+            ROBUSTNESS_DATA_DIRECTORY
+            / "classification_evidence.csv",
+
+        "counterfactual_performance":
+            ROBUSTNESS_DATA_DIRECTORY
+            / "counterfactual_performance.csv",
+
+        "final_robustness_classification":
+            ROBUSTNESS_DATA_DIRECTORY
+            / "final_robustness_classification.csv",
+
+        "holding_attribution":
+            ROBUSTNESS_DATA_DIRECTORY
+            / "holding_attribution.csv",
+
+        "incremental_attribution":
+            ROBUSTNESS_DATA_DIRECTORY
+            / "incremental_attribution.csv",
+
+        "sector_attribution":
+            ROBUSTNESS_DATA_DIRECTORY
+            / "sector_attribution.csv",
+
+        "volatility_state_performance":
+            ROBUSTNESS_DATA_DIRECTORY
+            / "volatility_state_performance.csv",
     }
 
     missing_files = [
@@ -182,6 +222,53 @@ def load_robustness_data():
         "final_robustness_assessment": pd.read_csv(
             file_paths["final_robustness_assessment"],
             index_col="Metric",
+        ),
+
+        "attribution_reconstruction_diagnostic": pd.read_csv(
+            file_paths["attribution_reconstruction_diagnostic"],
+            index_col="Weight Convention",
+        ),
+
+        "bucket_attribution": pd.read_csv(
+            file_paths["bucket_attribution"],
+            index_col="Portfolio Bucket",
+        ),
+
+        "bull_bear_performance": pd.read_csv(
+            file_paths["bull_bear_performance"],
+        ),
+
+        "classification_evidence": pd.read_csv(
+            file_paths["classification_evidence"],
+        ),
+
+        "counterfactual_performance": pd.read_csv(
+            file_paths["counterfactual_performance"],
+            index_col="Metric",
+        ),
+
+        "final_robustness_classification": pd.read_csv(
+            file_paths["final_robustness_classification"],
+            index_col="Metric",
+        ),
+
+        "holding_attribution": pd.read_csv(
+            file_paths["holding_attribution"],
+            index_col="Ticker",
+        ),
+
+        "incremental_attribution": pd.read_csv(
+            file_paths["incremental_attribution"],
+            index_col="Effect",
+        ),
+
+        "sector_attribution": pd.read_csv(
+            file_paths["sector_attribution"],
+            index_col="Sector",
+        ),
+
+        "volatility_state_performance": pd.read_csv(
+            file_paths["volatility_state_performance"],
         ),
     }
 
@@ -2465,4 +2552,725 @@ with scorecard_tab:
         "The confidence score is an internal research framework. "
         "It is not a probability of future success or a guarantee "
         "of future investment returns."
+    )
+
+# ---------------------------------------------------------
+# v0.3.1 complete robustness and attribution
+# ---------------------------------------------------------
+
+st.markdown("---")
+st.markdown("# Complete Robustness and Attribution")
+
+st.caption(
+    "This section completes the original v0.3 roadmap with "
+    "bull/bear analysis, volatility-state analysis, performance "
+    "attribution and the final four-category robustness classification."
+)
+
+(
+    market_state_tab,
+    attribution_tab,
+    counterfactual_tab,
+    final_classification_tab,
+) = st.tabs(
+    [
+        "Market States",
+        "Performance Attribution",
+        "Counterfactual Analysis",
+        "Final Classification",
+    ]
+)
+
+
+# =========================================================
+# TAB 1 — Bull/bear and volatility states
+# =========================================================
+
+with market_state_tab:
+
+    bull_bear_data = robustness_data[
+        "bull_bear_performance"
+    ].copy()
+
+    volatility_state_data = robustness_data[
+        "volatility_state_performance"
+    ].copy()
+
+    adaptive_name_v031 = "Adaptive Barbell Strategy"
+    fixed_name_v031 = "Fixed India 10 Portfolio"
+
+    st.markdown("## Bull and Bear Market Analysis")
+
+    bull_bear_display = bull_bear_data[
+        [
+            "Market State",
+            "Investment",
+            "Trading Days",
+            "Annualised Return",
+            "Annualised Volatility",
+            "Sharpe Ratio",
+            "Maximum Drawdown",
+        ]
+    ].copy().astype(object)
+
+    for row_number in bull_bear_display.index:
+
+        bull_bear_display.loc[
+            row_number,
+            "Trading Days",
+        ] = (
+            f"{int(bull_bear_data.loc[row_number, 'Trading Days']):,}"
+        )
+
+        for metric in [
+            "Annualised Return",
+            "Annualised Volatility",
+            "Maximum Drawdown",
+        ]:
+
+            bull_bear_display.loc[
+                row_number,
+                metric,
+            ] = (
+                f"{bull_bear_data.loc[row_number, metric]:.2%}"
+            )
+
+        bull_bear_display.loc[
+            row_number,
+            "Sharpe Ratio",
+        ] = (
+            f"{bull_bear_data.loc[row_number, 'Sharpe Ratio']:.2f}"
+        )
+
+    st.dataframe(
+        bull_bear_display,
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    bull_bear_indexed_v031 = (
+        bull_bear_data
+        .set_index(
+            [
+                "Market State",
+                "Investment",
+            ]
+        )
+    )
+
+    bear_adaptive = bull_bear_indexed_v031.loc[
+        (
+            "Bear",
+            adaptive_name_v031,
+        )
+    ]
+
+    bear_fixed = bull_bear_indexed_v031.loc[
+        (
+            "Bear",
+            fixed_name_v031,
+        )
+    ]
+
+    bear_col_1, bear_col_2, bear_col_3, bear_col_4 = (
+        st.columns(4)
+    )
+
+    bear_col_1.metric(
+        "Bear-State Adaptive Return",
+        f"{bear_adaptive['Annualised Return']:.2%}",
+    )
+
+    bear_col_2.metric(
+        "Bear-State Fixed Return",
+        f"{bear_fixed['Annualised Return']:.2%}",
+    )
+
+    bear_col_3.metric(
+        "Adaptive Bear Volatility",
+        f"{bear_adaptive['Annualised Volatility']:.2%}",
+    )
+
+    bear_col_4.metric(
+        "Adaptive Bear Drawdown",
+        f"{bear_adaptive['Maximum Drawdown']:.2%}",
+    )
+
+    st.info(
+        "Bear states are defined using the previous trading day's "
+        "trailing one-year Nifty 50 return. These are conditional "
+        "statistics, not returns from a separately investable portfolio."
+    )
+
+    st.markdown("## High- and Low-Volatility Analysis")
+
+    volatility_display = volatility_state_data[
+        [
+            "Volatility State",
+            "Investment",
+            "Trading Days",
+            "Annualised Return",
+            "Annualised Volatility",
+            "Sharpe Ratio",
+            "Maximum Drawdown",
+        ]
+    ].copy().astype(object)
+
+    for row_number in volatility_display.index:
+
+        volatility_display.loc[
+            row_number,
+            "Trading Days",
+        ] = (
+            f"{int(volatility_state_data.loc[row_number, 'Trading Days']):,}"
+        )
+
+        for metric in [
+            "Annualised Return",
+            "Annualised Volatility",
+            "Maximum Drawdown",
+        ]:
+
+            volatility_display.loc[
+                row_number,
+                metric,
+            ] = (
+                f"{volatility_state_data.loc[row_number, metric]:.2%}"
+            )
+
+        volatility_display.loc[
+            row_number,
+            "Sharpe Ratio",
+        ] = (
+            f"{volatility_state_data.loc[row_number, 'Sharpe Ratio']:.2f}"
+        )
+
+    st.dataframe(
+        volatility_display,
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    volatility_indexed_v031 = (
+        volatility_state_data
+        .set_index(
+            [
+                "Volatility State",
+                "Investment",
+            ]
+        )
+    )
+
+    high_vol_adaptive = volatility_indexed_v031.loc[
+        (
+            "High Volatility",
+            adaptive_name_v031,
+        )
+    ]
+
+    high_vol_fixed = volatility_indexed_v031.loc[
+        (
+            "High Volatility",
+            fixed_name_v031,
+        )
+    ]
+
+    high_vol_col_1, high_vol_col_2, high_vol_col_3 = (
+        st.columns(3)
+    )
+
+    high_vol_col_1.metric(
+        "High-Vol Adaptive Sharpe",
+        f"{high_vol_adaptive['Sharpe Ratio']:.2f}",
+    )
+
+    high_vol_col_2.metric(
+        "High-Vol Fixed Sharpe",
+        f"{high_vol_fixed['Sharpe Ratio']:.2f}",
+    )
+
+    high_vol_col_3.metric(
+        "High-Vol Drawdown Improvement",
+        (
+            f"{high_vol_adaptive['Maximum Drawdown'] - high_vol_fixed['Maximum Drawdown']:+.2%}"
+        ),
+    )
+
+    st.markdown(
+        """
+        The Adaptive strategy reduced volatility in bull, bear,
+        high-volatility and low-volatility market states.
+
+        Its strongest and most consistent advantage was therefore
+        downside-risk control rather than guaranteed return
+        outperformance in every market environment.
+        """
+    )
+
+
+# =========================================================
+# TAB 2 — Holding, bucket and sector attribution
+# =========================================================
+
+with attribution_tab:
+
+    holding_data = robustness_data[
+        "holding_attribution"
+    ].copy()
+
+    bucket_data = robustness_data[
+        "bucket_attribution"
+    ].copy()
+
+    sector_data = robustness_data[
+        "sector_attribution"
+    ].copy()
+
+    st.markdown("## Holding-Level Attribution")
+
+    holding_display = (
+        holding_data
+        .copy()
+        .astype(object)
+    )
+
+    for ticker in holding_display.index:
+
+        for metric in [
+            "Average Portfolio Weight",
+            "Linked Return Contribution",
+            "Contribution Share",
+        ]:
+
+            holding_display.loc[
+                ticker,
+                metric,
+            ] = (
+                f"{holding_data.loc[ticker, metric]:.2%}"
+            )
+
+    st.dataframe(
+        holding_display,
+        use_container_width=True,
+    )
+
+    top_two_holdings = (
+        holding_data
+        .sort_values(
+            "Linked Return Contribution",
+            ascending=False,
+        )
+        .head(2)
+    )
+
+    top_two_share = (
+        top_two_holdings[
+            "Contribution Share"
+        ].sum()
+    )
+
+    top_holding_names = ", ".join(
+        top_two_holdings.index.tolist()
+    )
+
+    holding_col_1, holding_col_2, holding_col_3 = (
+        st.columns(3)
+    )
+
+    holding_col_1.metric(
+        "Largest Contributor",
+        top_two_holdings.index[0],
+    )
+
+    holding_col_2.metric(
+        "Top-Two Contribution Share",
+        f"{top_two_share:.2%}",
+    )
+
+    holding_col_3.metric(
+        "Negative Contributors",
+        (
+            f"{(holding_data['Linked Return Contribution'] < 0).sum()}"
+        ),
+    )
+
+    st.warning(
+        f"The two largest contributors were {top_holding_names}. "
+        f"Together they generated {top_two_share:.2%} of total "
+        "linked return contribution, indicating material return "
+        "concentration."
+    )
+
+    st.markdown("## Portfolio-Bucket Attribution")
+
+    bucket_display = (
+        bucket_data
+        .copy()
+        .astype(object)
+    )
+
+    for bucket_name in bucket_display.index:
+
+        for metric in [
+            "Linked Return Contribution",
+            "Contribution Share",
+        ]:
+
+            bucket_display.loc[
+                bucket_name,
+                metric,
+            ] = (
+                f"{bucket_data.loc[bucket_name, metric]:.2%}"
+            )
+
+    st.dataframe(
+        bucket_display,
+        use_container_width=True,
+    )
+
+    growth_share = bucket_data.loc[
+        "Growth Leaders",
+        "Contribution Share",
+    ]
+
+    resilient_share = bucket_data.loc[
+        "Resilient Compounders",
+        "Contribution Share",
+    ]
+
+    bucket_col_1, bucket_col_2, bucket_col_3 = (
+        st.columns(3)
+    )
+
+    bucket_col_1.metric(
+        "Growth Leaders Share",
+        f"{growth_share:.2%}",
+    )
+
+    bucket_col_2.metric(
+        "Resilient Share",
+        f"{resilient_share:.2%}",
+    )
+
+    bucket_col_3.metric(
+        "Cash Contribution",
+        (
+            f"{bucket_data.loc['Cash Protection', 'Linked Return Contribution']:.2%}"
+        ),
+    )
+
+    st.markdown("## Sector Attribution")
+
+    sector_display = (
+        sector_data
+        .copy()
+        .astype(object)
+    )
+
+    for sector_name in sector_display.index:
+
+        for metric in [
+            "Linked Return Contribution",
+            "Contribution Share",
+        ]:
+
+            sector_display.loc[
+                sector_name,
+                metric,
+            ] = (
+                f"{sector_data.loc[sector_name, metric]:.2%}"
+            )
+
+    st.dataframe(
+        sector_display,
+        use_container_width=True,
+    )
+
+    st.markdown(
+        """
+        The attribution shows that most absolute return came from the
+        Growth Leaders bucket and a limited number of high-performing
+        holdings.
+
+        The portfolio's risk reduction was broader than its return
+        generation, which remained concentrated.
+        """
+    )
+
+
+# =========================================================
+# TAB 3 — Counterfactual portfolio analysis
+# =========================================================
+
+with counterfactual_tab:
+
+    counterfactual_data = robustness_data[
+        "counterfactual_performance"
+    ].copy()
+
+    incremental_data = robustness_data[
+        "incremental_attribution"
+    ].copy()
+
+    st.markdown("## Counterfactual Portfolio Performance")
+
+    counterfactual_metrics = [
+        "Ending Value (₹)",
+        "Total Return",
+        "CAGR",
+        "Annualised Volatility",
+        "Sharpe Ratio",
+        "Maximum Drawdown",
+        "Calmar Ratio",
+        "Beta vs Nifty 50",
+    ]
+
+    counterfactual_display_v031 = (
+        counterfactual_data
+        .loc[counterfactual_metrics]
+        .copy()
+        .astype(object)
+    )
+
+    for portfolio_name in counterfactual_display_v031.columns:
+
+        counterfactual_display_v031.loc[
+            "Ending Value (₹)",
+            portfolio_name,
+        ] = (
+            f"₹{counterfactual_data.loc['Ending Value (₹)', portfolio_name]:,.0f}"
+        )
+
+        for metric in [
+            "Total Return",
+            "CAGR",
+            "Annualised Volatility",
+            "Maximum Drawdown",
+        ]:
+
+            counterfactual_display_v031.loc[
+                metric,
+                portfolio_name,
+            ] = (
+                f"{counterfactual_data.loc[metric, portfolio_name]:.2%}"
+            )
+
+        for metric in [
+            "Sharpe Ratio",
+            "Calmar Ratio",
+            "Beta vs Nifty 50",
+        ]:
+
+            counterfactual_display_v031.loc[
+                metric,
+                portfolio_name,
+            ] = (
+                f"{counterfactual_data.loc[metric, portfolio_name]:.2f}"
+            )
+
+    st.dataframe(
+        counterfactual_display_v031,
+        use_container_width=True,
+    )
+
+    st.markdown("## Incremental Strategy Effects")
+
+    incremental_display = (
+        incremental_data
+        .copy()
+        .astype(object)
+    )
+
+    for effect_name in incremental_display.index:
+
+        incremental_display.loc[
+            effect_name,
+            "Ending Value Effect (₹)",
+        ] = (
+            f"₹{incremental_data.loc[effect_name, 'Ending Value Effect (₹)']:+,.0f}"
+        )
+
+        for metric in [
+            "CAGR Effect",
+            "Volatility Effect",
+            "Drawdown Improvement",
+        ]:
+
+            incremental_display.loc[
+                effect_name,
+                metric,
+            ] = (
+                f"{incremental_data.loc[effect_name, metric]:+.2%}"
+            )
+
+        for metric in [
+            "Sharpe Effect",
+            "Calmar Effect",
+            "Beta Effect",
+        ]:
+
+            incremental_display.loc[
+                effect_name,
+                metric,
+            ] = (
+                f"{incremental_data.loc[effect_name, metric]:+.2f}"
+            )
+
+    st.dataframe(
+        incremental_display,
+        use_container_width=True,
+    )
+
+    st.markdown(
+        """
+        The selected ten-stock universe generated most of the absolute
+        return advantage over the Nifty 50.
+
+        Dynamic weighting and defensive cash protection added value
+        mainly through lower volatility, smaller drawdowns, lower beta
+        and stronger risk-adjusted performance.
+        """
+    )
+
+
+# =========================================================
+# TAB 4 — Final roadmap-aligned classification
+# =========================================================
+
+with final_classification_tab:
+
+    classification_data = robustness_data[
+        "classification_evidence"
+    ].copy()
+
+    classification_summary = robustness_data[
+        "final_robustness_classification"
+    ].copy()
+
+    final_classification = str(
+        classification_summary.loc[
+            "Final Robustness Classification",
+            "Result",
+        ]
+    )
+
+    combinations_tested = int(
+        float(
+            classification_summary.loc[
+                "Parameter Combinations Tested",
+                "Result",
+            ]
+        )
+    )
+
+    top_two_concentration = float(
+        classification_summary.loc[
+            "Top-Two Holding Contribution Share",
+            "Result",
+        ]
+    )
+
+    growth_concentration = float(
+        classification_summary.loc[
+            "Growth Bucket Contribution Share",
+            "Result",
+        ]
+    )
+
+    st.markdown("## Final Robustness Classification")
+
+    final_class_col_1, final_class_col_2, final_class_col_3 = (
+        st.columns(3)
+    )
+
+    final_class_col_1.metric(
+        "Classification",
+        final_classification,
+    )
+
+    final_class_col_2.metric(
+        "Parameter Combinations",
+        f"{combinations_tested:,}",
+    )
+
+    final_class_col_3.metric(
+        "Top-Two Contribution Share",
+        f"{top_two_concentration:.2%}",
+    )
+
+    classification_display = (
+        classification_data
+        .copy()
+    )
+
+    classification_display[
+        "Result"
+    ] = classification_display[
+        "Result"
+    ].map(
+        lambda value: (
+            "Passed"
+            if str(value).strip().lower() == "true"
+            else "Not passed"
+        )
+    )
+
+    st.dataframe(
+        classification_display,
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    if final_classification == "Robust":
+
+        st.success(
+            "The strategy is classified as Robust."
+        )
+
+    elif final_classification == "Moderately robust":
+
+        st.warning(
+            "The strategy is classified as Moderately robust."
+        )
+
+    elif final_classification == "Parameter-sensitive":
+
+        st.error(
+            "The strategy is classified as Parameter-sensitive."
+        )
+
+    else:
+
+        st.error(
+            "The strategy is classified as Likely overfitted."
+        )
+
+    st.markdown(
+        f"""
+        The strategy passed the completed **{combinations_tested}**
+        combination parameter grid and remained resilient under higher
+        transaction costs.
+
+        It also reduced risk across different market environments.
+
+        However, the Growth Leaders bucket generated
+        **{growth_concentration:.2%}** of total linked return
+        contribution, and the two largest holdings generated
+        **{top_two_concentration:.2%}**.
+
+        Point-in-time universe construction and external-universe
+        validation are still missing.
+
+        The academically defensible conclusion is therefore:
+
+        **Moderately robust — strong risk-control evidence, but
+        meaningful stock-selection bias and return-concentration
+        limitations remain.**
+        """
+    )
+
+    st.info(
+        "This classification applies to the tested India 10 research "
+        "case. It is not a guarantee of future performance and is not "
+        "a probability estimate."
     )

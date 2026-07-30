@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyPlEHSUmctRGc+z2eUWgkUP",
+      "authorship_tag": "ABX9TyMg8nx6hEIIVHJlXHMXoCye",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -4147,6 +4147,47 @@
           "metadata": {}
         }
       ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 9. Preliminary Strategy Interpretation\n",
+        "\n",
+        "The Adaptive Barbell strategy generated a lower absolute return than the fixed India 10 portfolio but delivered a stronger risk-adjusted outcome.\n",
+        "\n",
+        "### Return trade-off\n",
+        "\n",
+        "The Adaptive strategy generated a CAGR of 20.57%, compared with 22.71% for the fixed portfolio. The strategy therefore sacrificed some upside during the evaluation period.\n",
+        "\n",
+        "### Risk reduction\n",
+        "\n",
+        "Annualised volatility declined from 16.49% for the fixed portfolio to 12.88% for the Adaptive strategy.\n",
+        "\n",
+        "Maximum drawdown improved from -22.80% to -14.79%, indicating that the market-regime overlay and cash allocation reduced the severity of portfolio losses during adverse periods.\n",
+        "\n",
+        "### Risk-adjusted performance\n",
+        "\n",
+        "The Adaptive strategy produced:\n",
+        "\n",
+        "- a higher Sharpe ratio of 1.05,\n",
+        "- a higher Sortino ratio of 1.54, and\n",
+        "- a higher Calmar ratio of 1.39.\n",
+        "\n",
+        "These results suggest that the strategy generated a better return relative to the amount of risk and drawdown experienced.\n",
+        "\n",
+        "### Market sensitivity\n",
+        "\n",
+        "The strategy's beta of 0.81 was lower than the fixed portfolio's beta of 0.98. This indicates reduced sensitivity to movements in the Nifty 50.\n",
+        "\n",
+        "### Preliminary conclusion\n",
+        "\n",
+        "The Adaptive Barbell strategy did not maximise ending portfolio value. However, it achieved the intended objective of improving downside protection and risk-adjusted performance.\n",
+        "\n",
+        "The result should be interpreted as preliminary evidence rather than proof of persistent alpha because the stock universe was selected with present-day knowledge and the strategy has not yet undergone out-of-sample or robustness testing."
+      ],
+      "metadata": {
+        "id": "uVZ0CXxUZjXM"
+      }
     }
   ]
 }

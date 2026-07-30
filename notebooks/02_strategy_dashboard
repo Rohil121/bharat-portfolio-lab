@@ -1,0 +1,61 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN/85SDCuPi3dh9HdHX7VFH",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Rohil121/bharat-portfolio-lab/blob/v0.2-strategy-dashboard/notebooks/02_strategy_dashboard\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Bharat Portfolio Lab — Strategy Dashboard\n",
+        "\n",
+        "## Version v0.2\n",
+        "\n",
+        "This notebook upgrades the deployed application by integrating:\n",
+        "\n",
+        "- Adaptive Barbell strategy rules\n",
+        "- Monthly portfolio rebalancing\n",
+        "- Momentum and inverse-volatility weighting\n",
+        "- Nifty 50 trend-based defensive allocation\n",
+        "- Transaction costs and turnover\n",
+        "- Strategy comparison against the fixed portfolio and Nifty 50\n",
+        "\n",
+        "Development is performed on the `v0.2-strategy-dashboard` GitHub branch."
+      ],
+      "metadata": {
+        "id": "9yENixaHWMnD"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "8Tt-aNjiWIju"
+      },
+      "outputs": [],
+      "source": []
+    }
+  ]
+}

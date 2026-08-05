@@ -1,0 +1,91 @@
+Date,Ticker,Score,Strategy,Signal Type,Signal Rank,Selected,Target Weight
+2026-07-01,TCS.NS,0.13702441201021154,1-Month Reversal,Rule-Based Baseline,1,True,0.3333333333333333
+2026-07-01,POWERGRID.NS,-0.004892517652790307,1-Month Reversal,Rule-Based Baseline,2,True,0.3333333333333333
+2026-07-01,LT.NS,-0.020394945604936154,1-Month Reversal,Rule-Based Baseline,3,True,0.3333333333333333
+2026-07-01,BEL.NS,-0.022224920239853674,1-Month Reversal,Rule-Based Baseline,4,False,0.0
+2026-07-01,BHARTIARTL.NS,-0.03335917288846968,1-Month Reversal,Rule-Based Baseline,5,False,0.0
+2026-07-01,SUNPHARMA.NS,-0.03879760130133558,1-Month Reversal,Rule-Based Baseline,6,False,0.0
+2026-07-01,M&M.NS,-0.0538011277206889,1-Month Reversal,Rule-Based Baseline,7,False,0.0
+2026-07-01,HINDUNILVR.NS,-0.05752254378896571,1-Month Reversal,Rule-Based Baseline,8,False,0.0
+2026-07-01,HDFCBANK.NS,-0.08969690519449913,1-Month Reversal,Rule-Based Baseline,9,False,0.0
+2026-07-01,TRENT.NS,-0.18893099180614858,1-Month Reversal,Rule-Based Baseline,10,False,0.0
+2026-07-01,SUNPHARMA.NS,0.13176723666671153,12-Month Momentum,Rule-Based Baseline,1,True,0.3333333333333333
+2026-07-01,LT.NS,0.12850191891824037,12-Month Momentum,Rule-Based Baseline,2,True,0.3333333333333333
+2026-07-01,BEL.NS,0.026311821312813066,12-Month Momentum,Rule-Based Baseline,3,True,0.3333333333333333
+2026-07-01,POWERGRID.NS,0.013128881916619095,12-Month Momentum,Rule-Based Baseline,4,False,0.0
+2026-07-01,M&M.NS,-0.009186422422208573,12-Month Momentum,Rule-Based Baseline,5,False,0.0
+2026-07-01,BHARTIARTL.NS,-0.025847325695546486,12-Month Momentum,Rule-Based Baseline,6,False,0.0
+2026-07-01,HINDUNILVR.NS,-0.02658776965645382,12-Month Momentum,Rule-Based Baseline,7,False,0.0
+2026-07-01,HDFCBANK.NS,-0.16500491780874094,12-Month Momentum,Rule-Based Baseline,8,False,0.0
+2026-07-01,TCS.NS,-0.400234991499715,12-Month Momentum,Rule-Based Baseline,9,False,0.0
+2026-07-01,TRENT.NS,-0.4412612117202458,12-Month Momentum,Rule-Based Baseline,10,False,0.0
+2026-07-01,TCS.NS,0.04866082647100814,Gradient Boosting,Tree-Based Model,1,True,0.3333333333333333
+2026-07-01,SUNPHARMA.NS,0.008646478576159342,Gradient Boosting,Tree-Based Model,2,True,0.3333333333333333
+2026-07-01,LT.NS,0.005616167048166635,Gradient Boosting,Tree-Based Model,3,True,0.3333333333333333
+2026-07-01,M&M.NS,-0.002092592853820691,Gradient Boosting,Tree-Based Model,4,False,0.0
+2026-07-01,TRENT.NS,-0.007102392130454945,Gradient Boosting,Tree-Based Model,5,False,0.0
+2026-07-01,BEL.NS,-0.007733974861852167,Gradient Boosting,Tree-Based Model,6,False,0.0
+2026-07-01,HINDUNILVR.NS,-0.007741860258872323,Gradient Boosting,Tree-Based Model,7,False,0.0
+2026-07-01,BHARTIARTL.NS,-0.009186216502094788,Gradient Boosting,Tree-Based Model,8,False,0.0
+2026-07-01,POWERGRID.NS,-0.01324916529331446,Gradient Boosting,Tree-Based Model,9,False,0.0
+2026-07-01,HDFCBANK.NS,-0.021529122045633793,Gradient Boosting,Tree-Based Model,10,False,0.0
+2026-07-01,TCS.NS,0.007885372327157244,Lasso Regression,Sparse Regression Model,1,True,0.3333333333333333
+2026-07-01,POWERGRID.NS,0.0032613645418870024,Lasso Regression,Sparse Regression Model,2,True,0.3333333333333333
+2026-07-01,LT.NS,0.003187952937254065,Lasso Regression,Sparse Regression Model,3,True,0.3333333333333333
+2026-07-01,BEL.NS,0.0023068411913166756,Lasso Regression,Sparse Regression Model,4,False,0.0
+2026-07-01,SUNPHARMA.NS,0.0021970343221078253,Lasso Regression,Sparse Regression Model,5,False,0.0
+2026-07-01,BHARTIARTL.NS,0.0004324815314685204,Lasso Regression,Sparse Regression Model,6,False,0.0
+2026-07-01,M&M.NS,-0.00034049637613497996,Lasso Regression,Sparse Regression Model,7,False,0.0
+2026-07-01,HINDUNILVR.NS,-0.0007949358012261055,Lasso Regression,Sparse Regression Model,8,False,0.0
+2026-07-01,HDFCBANK.NS,-0.005439943796625101,Lasso Regression,Sparse Regression Model,9,False,0.0
+2026-07-01,TRENT.NS,-0.015245502753567251,Lasso Regression,Sparse Regression Model,10,False,0.0
+2026-07-01,TCS.NS,0.0020266809644202124,Linear Regression,Regression Model,1,True,0.3333333333333333
+2026-07-01,POWERGRID.NS,0.0006808523147905235,Linear Regression,Regression Model,2,True,0.3333333333333333
+2026-07-01,SUNPHARMA.NS,0.00022553589077504554,Linear Regression,Regression Model,3,True,0.3333333333333333
+2026-07-01,BEL.NS,-0.0005383457272671952,Linear Regression,Regression Model,4,False,0.0
+2026-07-01,LT.NS,-0.0042505777893291725,Linear Regression,Regression Model,5,False,0.0
+2026-07-01,BHARTIARTL.NS,-0.006190268890761733,Linear Regression,Regression Model,6,False,0.0
+2026-07-01,HINDUNILVR.NS,-0.006545586885882484,Linear Regression,Regression Model,7,False,0.0
+2026-07-01,M&M.NS,-0.007168380444145957,Linear Regression,Regression Model,8,False,0.0
+2026-07-01,HDFCBANK.NS,-0.014210895785310138,Linear Regression,Regression Model,9,False,0.0
+2026-07-01,TRENT.NS,-0.03241631735704947,Linear Regression,Regression Model,10,False,0.0
+2026-07-01,TCS.NS,0.5440950606349471,Nifty Outperformance Logistic,Classification Model,1,True,0.3333333333333333
+2026-07-01,POWERGRID.NS,0.4978174500005006,Nifty Outperformance Logistic,Classification Model,2,True,0.3333333333333333
+2026-07-01,BEL.NS,0.49561952728311576,Nifty Outperformance Logistic,Classification Model,3,True,0.3333333333333333
+2026-07-01,LT.NS,0.48460941483679465,Nifty Outperformance Logistic,Classification Model,4,False,0.0
+2026-07-01,M&M.NS,0.4796148400612366,Nifty Outperformance Logistic,Classification Model,5,False,0.0
+2026-07-01,SUNPHARMA.NS,0.4786024994891986,Nifty Outperformance Logistic,Classification Model,6,False,0.0
+2026-07-01,BHARTIARTL.NS,0.47563712542698533,Nifty Outperformance Logistic,Classification Model,7,False,0.0
+2026-07-01,HINDUNILVR.NS,0.46943377798871033,Nifty Outperformance Logistic,Classification Model,8,False,0.0
+2026-07-01,HDFCBANK.NS,0.4568708487872358,Nifty Outperformance Logistic,Classification Model,9,False,0.0
+2026-07-01,TRENT.NS,0.42396421077464375,Nifty Outperformance Logistic,Classification Model,10,False,0.0
+2026-07-01,POWERGRID.NS,0.6617961072708332,Positive Return Logistic,Classification Model,1,True,0.3333333333333333
+2026-07-01,SUNPHARMA.NS,0.6357120272052407,Positive Return Logistic,Classification Model,2,True,0.3333333333333333
+2026-07-01,TCS.NS,0.6226852447597314,Positive Return Logistic,Classification Model,3,True,0.3333333333333333
+2026-07-01,BEL.NS,0.6226174390829646,Positive Return Logistic,Classification Model,4,False,0.0
+2026-07-01,BHARTIARTL.NS,0.6019254806498717,Positive Return Logistic,Classification Model,5,False,0.0
+2026-07-01,M&M.NS,0.591139763813566,Positive Return Logistic,Classification Model,6,False,0.0
+2026-07-01,LT.NS,0.5883048130475607,Positive Return Logistic,Classification Model,7,False,0.0
+2026-07-01,HINDUNILVR.NS,0.588301211789647,Positive Return Logistic,Classification Model,8,False,0.0
+2026-07-01,HDFCBANK.NS,0.5577605692267438,Positive Return Logistic,Classification Model,9,False,0.0
+2026-07-01,TRENT.NS,0.5103576260332341,Positive Return Logistic,Classification Model,10,False,0.0
+2026-07-01,TCS.NS,0.023780161942791506,Random Forest,Tree-Based Model,1,True,0.3333333333333333
+2026-07-01,LT.NS,0.0005262271976062595,Random Forest,Tree-Based Model,2,True,0.3333333333333333
+2026-07-01,BEL.NS,0.00043034858852918453,Random Forest,Tree-Based Model,3,True,0.3333333333333333
+2026-07-01,M&M.NS,-0.00016573111302670647,Random Forest,Tree-Based Model,4,False,0.0
+2026-07-01,BHARTIARTL.NS,-0.0006569869010151743,Random Forest,Tree-Based Model,5,False,0.0
+2026-07-01,TRENT.NS,-0.0007709900333723315,Random Forest,Tree-Based Model,6,False,0.0
+2026-07-01,HINDUNILVR.NS,-0.0009029516019015594,Random Forest,Tree-Based Model,7,False,0.0
+2026-07-01,HDFCBANK.NS,-0.002438307838071071,Random Forest,Tree-Based Model,8,False,0.0
+2026-07-01,POWERGRID.NS,-0.0024872059512618316,Random Forest,Tree-Based Model,9,False,0.0
+2026-07-01,SUNPHARMA.NS,-0.0039909925236620005,Random Forest,Tree-Based Model,10,False,0.0
+2026-07-01,TCS.NS,0.0020689846548509715,Ridge Regression,Regression Model,1,True,0.3333333333333333
+2026-07-01,POWERGRID.NS,0.0007318935284043506,Ridge Regression,Regression Model,2,True,0.3333333333333333
+2026-07-01,SUNPHARMA.NS,0.0002326765600121853,Ridge Regression,Regression Model,3,True,0.3333333333333333
+2026-07-01,BEL.NS,-0.000535911410367961,Ridge Regression,Regression Model,4,False,0.0
+2026-07-01,LT.NS,-0.004258490746638226,Ridge Regression,Regression Model,5,False,0.0
+2026-07-01,BHARTIARTL.NS,-0.00617271250892095,Ridge Regression,Regression Model,6,False,0.0
+2026-07-01,HINDUNILVR.NS,-0.006541066141925814,Ridge Regression,Regression Model,7,False,0.0
+2026-07-01,M&M.NS,-0.007173460285402953,Ridge Regression,Regression Model,8,False,0.0
+2026-07-01,HDFCBANK.NS,-0.014228492381175684,Ridge Regression,Regression Model,9,False,0.0
+2026-07-01,TRENT.NS,-0.03234685735035052,Ridge Regression,Regression Model,10,False,0.0

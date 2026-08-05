@@ -1,0 +1,141 @@
+Strategy,Signal Date,Execution Date,Ticker,Score,Selected,Target Weight,Source Strategy,Construction Method,Regime,Market Regime
+1-Month Reversal,2026-07-01,2026-07-02,LT.NS,-0.020394945604936154,True,0.3333333333333333,1-Month Reversal,Top-3 Equal Weight,,Bear / Higher Volatility
+1-Month Reversal,2026-07-01,2026-07-02,POWERGRID.NS,-0.004892517652790307,True,0.3333333333333333,1-Month Reversal,Top-3 Equal Weight,,Bear / Higher Volatility
+1-Month Reversal,2026-07-01,2026-07-02,TCS.NS,0.13702441201021154,True,0.3333333333333333,1-Month Reversal,Top-3 Equal Weight,,Bear / Higher Volatility
+1-Month Reversal,2026-07-01,2026-07-02,BEL.NS,-0.022224920239853674,False,0.0,1-Month Reversal,Top-3 Equal Weight,,Bear / Higher Volatility
+1-Month Reversal,2026-07-01,2026-07-02,BHARTIARTL.NS,-0.03335917288846968,False,0.0,1-Month Reversal,Top-3 Equal Weight,,Bear / Higher Volatility
+1-Month Reversal,2026-07-01,2026-07-02,HDFCBANK.NS,-0.08969690519449913,False,0.0,1-Month Reversal,Top-3 Equal Weight,,Bear / Higher Volatility
+1-Month Reversal,2026-07-01,2026-07-02,HINDUNILVR.NS,-0.05752254378896571,False,0.0,1-Month Reversal,Top-3 Equal Weight,,Bear / Higher Volatility
+1-Month Reversal,2026-07-01,2026-07-02,M&M.NS,-0.0538011277206889,False,0.0,1-Month Reversal,Top-3 Equal Weight,,Bear / Higher Volatility
+1-Month Reversal,2026-07-01,2026-07-02,SUNPHARMA.NS,-0.03879760130133558,False,0.0,1-Month Reversal,Top-3 Equal Weight,,Bear / Higher Volatility
+1-Month Reversal,2026-07-01,2026-07-02,TRENT.NS,-0.18893099180614858,False,0.0,1-Month Reversal,Top-3 Equal Weight,,Bear / Higher Volatility
+12-Month Momentum,2026-07-01,2026-07-02,BEL.NS,0.026311821312813066,True,0.3333333333333333,12-Month Momentum,Top-3 Equal Weight,,Bear / Higher Volatility
+12-Month Momentum,2026-07-01,2026-07-02,LT.NS,0.12850191891824037,True,0.3333333333333333,12-Month Momentum,Top-3 Equal Weight,,Bear / Higher Volatility
+12-Month Momentum,2026-07-01,2026-07-02,SUNPHARMA.NS,0.13176723666671153,True,0.3333333333333333,12-Month Momentum,Top-3 Equal Weight,,Bear / Higher Volatility
+12-Month Momentum,2026-07-01,2026-07-02,BHARTIARTL.NS,-0.025847325695546486,False,0.0,12-Month Momentum,Top-3 Equal Weight,,Bear / Higher Volatility
+12-Month Momentum,2026-07-01,2026-07-02,HDFCBANK.NS,-0.16500491780874094,False,0.0,12-Month Momentum,Top-3 Equal Weight,,Bear / Higher Volatility
+12-Month Momentum,2026-07-01,2026-07-02,HINDUNILVR.NS,-0.02658776965645382,False,0.0,12-Month Momentum,Top-3 Equal Weight,,Bear / Higher Volatility
+12-Month Momentum,2026-07-01,2026-07-02,M&M.NS,-0.009186422422208573,False,0.0,12-Month Momentum,Top-3 Equal Weight,,Bear / Higher Volatility
+12-Month Momentum,2026-07-01,2026-07-02,POWERGRID.NS,0.013128881916619095,False,0.0,12-Month Momentum,Top-3 Equal Weight,,Bear / Higher Volatility
+12-Month Momentum,2026-07-01,2026-07-02,TCS.NS,-0.400234991499715,False,0.0,12-Month Momentum,Top-3 Equal Weight,,Bear / Higher Volatility
+12-Month Momentum,2026-07-01,2026-07-02,TRENT.NS,-0.4412612117202458,False,0.0,12-Month Momentum,Top-3 Equal Weight,,Bear / Higher Volatility
+Equal-Weight India 10,2026-07-01,2026-07-02,BEL.NS,,True,0.1,Equal-Weight India 10,Equal Weight — 10 Stocks,,Bear / Higher Volatility
+Equal-Weight India 10,2026-07-01,2026-07-02,BHARTIARTL.NS,,True,0.1,Equal-Weight India 10,Equal Weight — 10 Stocks,,Bear / Higher Volatility
+Equal-Weight India 10,2026-07-01,2026-07-02,HDFCBANK.NS,,True,0.1,Equal-Weight India 10,Equal Weight — 10 Stocks,,Bear / Higher Volatility
+Equal-Weight India 10,2026-07-01,2026-07-02,HINDUNILVR.NS,,True,0.1,Equal-Weight India 10,Equal Weight — 10 Stocks,,Bear / Higher Volatility
+Equal-Weight India 10,2026-07-01,2026-07-02,LT.NS,,True,0.1,Equal-Weight India 10,Equal Weight — 10 Stocks,,Bear / Higher Volatility
+Equal-Weight India 10,2026-07-01,2026-07-02,M&M.NS,,True,0.1,Equal-Weight India 10,Equal Weight — 10 Stocks,,Bear / Higher Volatility
+Equal-Weight India 10,2026-07-01,2026-07-02,POWERGRID.NS,,True,0.1,Equal-Weight India 10,Equal Weight — 10 Stocks,,Bear / Higher Volatility
+Equal-Weight India 10,2026-07-01,2026-07-02,SUNPHARMA.NS,,True,0.1,Equal-Weight India 10,Equal Weight — 10 Stocks,,Bear / Higher Volatility
+Equal-Weight India 10,2026-07-01,2026-07-02,TCS.NS,,True,0.1,Equal-Weight India 10,Equal Weight — 10 Stocks,,Bear / Higher Volatility
+Equal-Weight India 10,2026-07-01,2026-07-02,TRENT.NS,,True,0.1,Equal-Weight India 10,Equal Weight — 10 Stocks,,Bear / Higher Volatility
+Gradient Boosting,2026-07-01,2026-07-02,LT.NS,0.005616167048166635,True,0.3333333333333333,Gradient Boosting,Top-3 Equal Weight,,Bear / Higher Volatility
+Gradient Boosting,2026-07-01,2026-07-02,SUNPHARMA.NS,0.008646478576159342,True,0.3333333333333333,Gradient Boosting,Top-3 Equal Weight,,Bear / Higher Volatility
+Gradient Boosting,2026-07-01,2026-07-02,TCS.NS,0.04866082647100814,True,0.3333333333333333,Gradient Boosting,Top-3 Equal Weight,,Bear / Higher Volatility
+Gradient Boosting,2026-07-01,2026-07-02,BEL.NS,-0.007733974861852167,False,0.0,Gradient Boosting,Top-3 Equal Weight,,Bear / Higher Volatility
+Gradient Boosting,2026-07-01,2026-07-02,BHARTIARTL.NS,-0.009186216502094788,False,0.0,Gradient Boosting,Top-3 Equal Weight,,Bear / Higher Volatility
+Gradient Boosting,2026-07-01,2026-07-02,HDFCBANK.NS,-0.021529122045633793,False,0.0,Gradient Boosting,Top-3 Equal Weight,,Bear / Higher Volatility
+Gradient Boosting,2026-07-01,2026-07-02,HINDUNILVR.NS,-0.007741860258872323,False,0.0,Gradient Boosting,Top-3 Equal Weight,,Bear / Higher Volatility
+Gradient Boosting,2026-07-01,2026-07-02,M&M.NS,-0.002092592853820691,False,0.0,Gradient Boosting,Top-3 Equal Weight,,Bear / Higher Volatility
+Gradient Boosting,2026-07-01,2026-07-02,POWERGRID.NS,-0.01324916529331446,False,0.0,Gradient Boosting,Top-3 Equal Weight,,Bear / Higher Volatility
+Gradient Boosting,2026-07-01,2026-07-02,TRENT.NS,-0.007102392130454945,False,0.0,Gradient Boosting,Top-3 Equal Weight,,Bear / Higher Volatility
+Gradient Boosting — Inverse Volatility,2026-07-01,2026-07-02,SUNPHARMA.NS,0.008646478576159342,True,0.39045401669599916,Gradient Boosting — Inverse Volatility,Top-3 Inverse Volatility,,Bear / Higher Volatility
+Gradient Boosting — Inverse Volatility,2026-07-01,2026-07-02,LT.NS,0.005616167048166635,True,0.3358413137181833,Gradient Boosting — Inverse Volatility,Top-3 Inverse Volatility,,Bear / Higher Volatility
+Gradient Boosting — Inverse Volatility,2026-07-01,2026-07-02,TCS.NS,0.04866082647100814,True,0.2737046695858175,Gradient Boosting — Inverse Volatility,Top-3 Inverse Volatility,,Bear / Higher Volatility
+Gradient Boosting — Inverse Volatility,2026-07-01,2026-07-02,BEL.NS,-0.007733974861852167,False,0.0,Gradient Boosting — Inverse Volatility,Top-3 Inverse Volatility,,Bear / Higher Volatility
+Gradient Boosting — Inverse Volatility,2026-07-01,2026-07-02,BHARTIARTL.NS,-0.009186216502094788,False,0.0,Gradient Boosting — Inverse Volatility,Top-3 Inverse Volatility,,Bear / Higher Volatility
+Gradient Boosting — Inverse Volatility,2026-07-01,2026-07-02,HDFCBANK.NS,-0.021529122045633793,False,0.0,Gradient Boosting — Inverse Volatility,Top-3 Inverse Volatility,,Bear / Higher Volatility
+Gradient Boosting — Inverse Volatility,2026-07-01,2026-07-02,HINDUNILVR.NS,-0.007741860258872323,False,0.0,Gradient Boosting — Inverse Volatility,Top-3 Inverse Volatility,,Bear / Higher Volatility
+Gradient Boosting — Inverse Volatility,2026-07-01,2026-07-02,M&M.NS,-0.002092592853820691,False,0.0,Gradient Boosting — Inverse Volatility,Top-3 Inverse Volatility,,Bear / Higher Volatility
+Gradient Boosting — Inverse Volatility,2026-07-01,2026-07-02,POWERGRID.NS,-0.01324916529331446,False,0.0,Gradient Boosting — Inverse Volatility,Top-3 Inverse Volatility,,Bear / Higher Volatility
+Gradient Boosting — Inverse Volatility,2026-07-01,2026-07-02,TRENT.NS,-0.007102392130454945,False,0.0,Gradient Boosting — Inverse Volatility,Top-3 Inverse Volatility,,Bear / Higher Volatility
+Lasso Regression,2026-07-01,2026-07-02,LT.NS,0.003187952937254065,True,0.3333333333333333,Lasso Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Lasso Regression,2026-07-01,2026-07-02,POWERGRID.NS,0.0032613645418870024,True,0.3333333333333333,Lasso Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Lasso Regression,2026-07-01,2026-07-02,TCS.NS,0.007885372327157244,True,0.3333333333333333,Lasso Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Lasso Regression,2026-07-01,2026-07-02,BEL.NS,0.0023068411913166756,False,0.0,Lasso Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Lasso Regression,2026-07-01,2026-07-02,BHARTIARTL.NS,0.0004324815314685204,False,0.0,Lasso Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Lasso Regression,2026-07-01,2026-07-02,HDFCBANK.NS,-0.005439943796625101,False,0.0,Lasso Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Lasso Regression,2026-07-01,2026-07-02,HINDUNILVR.NS,-0.0007949358012261055,False,0.0,Lasso Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Lasso Regression,2026-07-01,2026-07-02,M&M.NS,-0.00034049637613497996,False,0.0,Lasso Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Lasso Regression,2026-07-01,2026-07-02,SUNPHARMA.NS,0.0021970343221078253,False,0.0,Lasso Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Lasso Regression,2026-07-01,2026-07-02,TRENT.NS,-0.015245502753567251,False,0.0,Lasso Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Linear Regression,2026-07-01,2026-07-02,POWERGRID.NS,0.0006808523147905235,True,0.3333333333333333,Linear Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Linear Regression,2026-07-01,2026-07-02,SUNPHARMA.NS,0.00022553589077504554,True,0.3333333333333333,Linear Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Linear Regression,2026-07-01,2026-07-02,TCS.NS,0.0020266809644202124,True,0.3333333333333333,Linear Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Linear Regression,2026-07-01,2026-07-02,BEL.NS,-0.0005383457272671952,False,0.0,Linear Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Linear Regression,2026-07-01,2026-07-02,BHARTIARTL.NS,-0.006190268890761733,False,0.0,Linear Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Linear Regression,2026-07-01,2026-07-02,HDFCBANK.NS,-0.014210895785310138,False,0.0,Linear Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Linear Regression,2026-07-01,2026-07-02,HINDUNILVR.NS,-0.006545586885882484,False,0.0,Linear Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Linear Regression,2026-07-01,2026-07-02,LT.NS,-0.0042505777893291725,False,0.0,Linear Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Linear Regression,2026-07-01,2026-07-02,M&M.NS,-0.007168380444145957,False,0.0,Linear Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Linear Regression,2026-07-01,2026-07-02,TRENT.NS,-0.03241631735704947,False,0.0,Linear Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Nifty Outperformance Logistic,2026-07-01,2026-07-02,BEL.NS,0.49561952728311576,True,0.3333333333333333,Nifty Outperformance Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Nifty Outperformance Logistic,2026-07-01,2026-07-02,POWERGRID.NS,0.4978174500005006,True,0.3333333333333333,Nifty Outperformance Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Nifty Outperformance Logistic,2026-07-01,2026-07-02,TCS.NS,0.5440950606349471,True,0.3333333333333333,Nifty Outperformance Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Nifty Outperformance Logistic,2026-07-01,2026-07-02,BHARTIARTL.NS,0.47563712542698533,False,0.0,Nifty Outperformance Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Nifty Outperformance Logistic,2026-07-01,2026-07-02,HDFCBANK.NS,0.4568708487872358,False,0.0,Nifty Outperformance Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Nifty Outperformance Logistic,2026-07-01,2026-07-02,HINDUNILVR.NS,0.46943377798871033,False,0.0,Nifty Outperformance Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Nifty Outperformance Logistic,2026-07-01,2026-07-02,LT.NS,0.48460941483679465,False,0.0,Nifty Outperformance Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Nifty Outperformance Logistic,2026-07-01,2026-07-02,M&M.NS,0.4796148400612366,False,0.0,Nifty Outperformance Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Nifty Outperformance Logistic,2026-07-01,2026-07-02,SUNPHARMA.NS,0.4786024994891986,False,0.0,Nifty Outperformance Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Nifty Outperformance Logistic,2026-07-01,2026-07-02,TRENT.NS,0.42396421077464375,False,0.0,Nifty Outperformance Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Nifty Outperformance Logistic — Probability Weighted,2026-07-01,2026-07-02,TCS.NS,0.5440950606349471,True,0.35387559232360233,Nifty Outperformance Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Nifty Outperformance Logistic — Probability Weighted,2026-07-01,2026-07-02,POWERGRID.NS,0.4978174500005006,True,0.32377696055974337,Nifty Outperformance Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Nifty Outperformance Logistic — Probability Weighted,2026-07-01,2026-07-02,BEL.NS,0.49561952728311576,True,0.32234744711665425,Nifty Outperformance Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Nifty Outperformance Logistic — Probability Weighted,2026-07-01,2026-07-02,BHARTIARTL.NS,0.47563712542698533,False,0.0,Nifty Outperformance Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Nifty Outperformance Logistic — Probability Weighted,2026-07-01,2026-07-02,HDFCBANK.NS,0.4568708487872358,False,0.0,Nifty Outperformance Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Nifty Outperformance Logistic — Probability Weighted,2026-07-01,2026-07-02,HINDUNILVR.NS,0.46943377798871033,False,0.0,Nifty Outperformance Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Nifty Outperformance Logistic — Probability Weighted,2026-07-01,2026-07-02,LT.NS,0.48460941483679465,False,0.0,Nifty Outperformance Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Nifty Outperformance Logistic — Probability Weighted,2026-07-01,2026-07-02,M&M.NS,0.4796148400612366,False,0.0,Nifty Outperformance Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Nifty Outperformance Logistic — Probability Weighted,2026-07-01,2026-07-02,SUNPHARMA.NS,0.4786024994891986,False,0.0,Nifty Outperformance Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Nifty Outperformance Logistic — Probability Weighted,2026-07-01,2026-07-02,TRENT.NS,0.42396421077464375,False,0.0,Nifty Outperformance Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Positive Return Logistic,2026-07-01,2026-07-02,POWERGRID.NS,0.6617961072708332,True,0.3333333333333333,Positive Return Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Positive Return Logistic,2026-07-01,2026-07-02,SUNPHARMA.NS,0.6357120272052407,True,0.3333333333333333,Positive Return Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Positive Return Logistic,2026-07-01,2026-07-02,TCS.NS,0.6226852447597314,True,0.3333333333333333,Positive Return Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Positive Return Logistic,2026-07-01,2026-07-02,BEL.NS,0.6226174390829646,False,0.0,Positive Return Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Positive Return Logistic,2026-07-01,2026-07-02,BHARTIARTL.NS,0.6019254806498717,False,0.0,Positive Return Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Positive Return Logistic,2026-07-01,2026-07-02,HDFCBANK.NS,0.5577605692267438,False,0.0,Positive Return Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Positive Return Logistic,2026-07-01,2026-07-02,HINDUNILVR.NS,0.588301211789647,False,0.0,Positive Return Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Positive Return Logistic,2026-07-01,2026-07-02,LT.NS,0.5883048130475607,False,0.0,Positive Return Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Positive Return Logistic,2026-07-01,2026-07-02,M&M.NS,0.591139763813566,False,0.0,Positive Return Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Positive Return Logistic,2026-07-01,2026-07-02,TRENT.NS,0.5103576260332341,False,0.0,Positive Return Logistic,Top-3 Equal Weight,,Bear / Higher Volatility
+Positive Return Logistic — Probability Weighted,2026-07-01,2026-07-02,POWERGRID.NS,0.6617961072708332,True,0.3446507598803478,Positive Return Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Positive Return Logistic — Probability Weighted,2026-07-01,2026-07-02,SUNPHARMA.NS,0.6357120272052407,True,0.3310666696800299,Positive Return Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Positive Return Logistic — Probability Weighted,2026-07-01,2026-07-02,TCS.NS,0.6226852447597314,True,0.32428257043962233,Positive Return Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Positive Return Logistic — Probability Weighted,2026-07-01,2026-07-02,BEL.NS,0.6226174390829646,False,0.0,Positive Return Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Positive Return Logistic — Probability Weighted,2026-07-01,2026-07-02,BHARTIARTL.NS,0.6019254806498717,False,0.0,Positive Return Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Positive Return Logistic — Probability Weighted,2026-07-01,2026-07-02,HDFCBANK.NS,0.5577605692267438,False,0.0,Positive Return Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Positive Return Logistic — Probability Weighted,2026-07-01,2026-07-02,HINDUNILVR.NS,0.588301211789647,False,0.0,Positive Return Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Positive Return Logistic — Probability Weighted,2026-07-01,2026-07-02,LT.NS,0.5883048130475607,False,0.0,Positive Return Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Positive Return Logistic — Probability Weighted,2026-07-01,2026-07-02,M&M.NS,0.591139763813566,False,0.0,Positive Return Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Positive Return Logistic — Probability Weighted,2026-07-01,2026-07-02,TRENT.NS,0.5103576260332341,False,0.0,Positive Return Logistic — Probability Weighted,Probability Weighted,,Bear / Higher Volatility
+Random Forest,2026-07-01,2026-07-02,BEL.NS,0.00043034858852918453,True,0.3333333333333333,Random Forest,Top-3 Equal Weight,,Bear / Higher Volatility
+Random Forest,2026-07-01,2026-07-02,LT.NS,0.0005262271976062595,True,0.3333333333333333,Random Forest,Top-3 Equal Weight,,Bear / Higher Volatility
+Random Forest,2026-07-01,2026-07-02,TCS.NS,0.023780161942791506,True,0.3333333333333333,Random Forest,Top-3 Equal Weight,,Bear / Higher Volatility
+Random Forest,2026-07-01,2026-07-02,BHARTIARTL.NS,-0.0006569869010151743,False,0.0,Random Forest,Top-3 Equal Weight,,Bear / Higher Volatility
+Random Forest,2026-07-01,2026-07-02,HDFCBANK.NS,-0.002438307838071071,False,0.0,Random Forest,Top-3 Equal Weight,,Bear / Higher Volatility
+Random Forest,2026-07-01,2026-07-02,HINDUNILVR.NS,-0.0009029516019015594,False,0.0,Random Forest,Top-3 Equal Weight,,Bear / Higher Volatility
+Random Forest,2026-07-01,2026-07-02,M&M.NS,-0.00016573111302670647,False,0.0,Random Forest,Top-3 Equal Weight,,Bear / Higher Volatility
+Random Forest,2026-07-01,2026-07-02,POWERGRID.NS,-0.0024872059512618316,False,0.0,Random Forest,Top-3 Equal Weight,,Bear / Higher Volatility
+Random Forest,2026-07-01,2026-07-02,SUNPHARMA.NS,-0.0039909925236620005,False,0.0,Random Forest,Top-3 Equal Weight,,Bear / Higher Volatility
+Random Forest,2026-07-01,2026-07-02,TRENT.NS,-0.0007709900333723315,False,0.0,Random Forest,Top-3 Equal Weight,,Bear / Higher Volatility
+Regime-Aware Walk-Forward,2026-07-01,2026-07-02,LT.NS,0.13780006649483148,True,0.3333333333333333,1-Month Reversal,Prior Same-Regime Sharpe Selection,Bear / Higher Volatility,Bear / Higher Volatility
+Regime-Aware Walk-Forward,2026-07-01,2026-07-02,POWERGRID.NS,0.13780006649483148,True,0.3333333333333333,1-Month Reversal,Prior Same-Regime Sharpe Selection,Bear / Higher Volatility,Bear / Higher Volatility
+Regime-Aware Walk-Forward,2026-07-01,2026-07-02,TCS.NS,0.13780006649483148,True,0.3333333333333333,1-Month Reversal,Prior Same-Regime Sharpe Selection,Bear / Higher Volatility,Bear / Higher Volatility
+Regime-Aware Walk-Forward,2026-07-01,2026-07-02,BEL.NS,0.13780006649483148,False,0.0,1-Month Reversal,Prior Same-Regime Sharpe Selection,Bear / Higher Volatility,Bear / Higher Volatility
+Regime-Aware Walk-Forward,2026-07-01,2026-07-02,BHARTIARTL.NS,0.13780006649483148,False,0.0,1-Month Reversal,Prior Same-Regime Sharpe Selection,Bear / Higher Volatility,Bear / Higher Volatility
+Regime-Aware Walk-Forward,2026-07-01,2026-07-02,HDFCBANK.NS,0.13780006649483148,False,0.0,1-Month Reversal,Prior Same-Regime Sharpe Selection,Bear / Higher Volatility,Bear / Higher Volatility
+Regime-Aware Walk-Forward,2026-07-01,2026-07-02,HINDUNILVR.NS,0.13780006649483148,False,0.0,1-Month Reversal,Prior Same-Regime Sharpe Selection,Bear / Higher Volatility,Bear / Higher Volatility
+Regime-Aware Walk-Forward,2026-07-01,2026-07-02,M&M.NS,0.13780006649483148,False,0.0,1-Month Reversal,Prior Same-Regime Sharpe Selection,Bear / Higher Volatility,Bear / Higher Volatility
+Regime-Aware Walk-Forward,2026-07-01,2026-07-02,SUNPHARMA.NS,0.13780006649483148,False,0.0,1-Month Reversal,Prior Same-Regime Sharpe Selection,Bear / Higher Volatility,Bear / Higher Volatility
+Regime-Aware Walk-Forward,2026-07-01,2026-07-02,TRENT.NS,0.13780006649483148,False,0.0,1-Month Reversal,Prior Same-Regime Sharpe Selection,Bear / Higher Volatility,Bear / Higher Volatility
+Ridge Regression,2026-07-01,2026-07-02,POWERGRID.NS,0.0007318935284043506,True,0.3333333333333333,Ridge Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Ridge Regression,2026-07-01,2026-07-02,SUNPHARMA.NS,0.0002326765600121853,True,0.3333333333333333,Ridge Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Ridge Regression,2026-07-01,2026-07-02,TCS.NS,0.0020689846548509715,True,0.3333333333333333,Ridge Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Ridge Regression,2026-07-01,2026-07-02,BEL.NS,-0.000535911410367961,False,0.0,Ridge Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Ridge Regression,2026-07-01,2026-07-02,BHARTIARTL.NS,-0.00617271250892095,False,0.0,Ridge Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Ridge Regression,2026-07-01,2026-07-02,HDFCBANK.NS,-0.014228492381175684,False,0.0,Ridge Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Ridge Regression,2026-07-01,2026-07-02,HINDUNILVR.NS,-0.006541066141925814,False,0.0,Ridge Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Ridge Regression,2026-07-01,2026-07-02,LT.NS,-0.004258490746638226,False,0.0,Ridge Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Ridge Regression,2026-07-01,2026-07-02,M&M.NS,-0.007173460285402953,False,0.0,Ridge Regression,Top-3 Equal Weight,,Bear / Higher Volatility
+Ridge Regression,2026-07-01,2026-07-02,TRENT.NS,-0.03234685735035052,False,0.0,Ridge Regression,Top-3 Equal Weight,,Bear / Higher Volatility

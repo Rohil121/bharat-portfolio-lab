@@ -1,0 +1,11 @@
+Finding,Evidence,Interpretation
+Overall historical leader,Regime-Aware Walk-Forward produced 34.44% CAGR and a 1.24 Sharpe ratio.,The dynamic regime selector was the strongest historical strategy after transaction costs.
+Strongest simple signal,1-Month Reversal produced 29.24% CAGR and a 1.03 Sharpe ratio.,Simple price-based signals remained difficult for the ML models to beat.
+Machine-learning comparison,"The best ML forward-selection result was Linear Regression at 1.31% mean excess return, versus 1.79% for 1-Month Reversal.",No tested ML model exceeded the reversal baseline on the primary forward-selection measure.
+Best backtested ML strategy,Linear Regression had the highest Sharpe ratio among the base ML strategies at 0.84.,ML added useful diversification but was not the standalone research winner.
+Regime-selector robustness,"Six selector variants produced 27.51% to 34.44% CAGR, with a 31.74% median.",Performance did not depend entirely on the base 63-observation selector specification.
+Statistical evidence,"Annualised arithmetic alpha was 11.80% versus equal weight and 20.37% versus Nifty 50. FDR significance: equal weight=True, Nifty=True.",The regime-aware return advantage remained positive after the block-bootstrap multiple-test adjustment.
+Time stability,The regime-aware strategy was positive in 100% of complete Indian financial years and had a 29.14% minimum rolling three-year CAGR.,The result was not concentrated entirely in one isolated financial year.
+Severe-cost resilience,12-Month Momentum had the highest 100-basis-point cost-scenario CAGR among the tested original strategies.,Longer-term momentum was more resilient than high-turnover reversal under severe trading costs.
+Latest historical regime allocation,"On 2026-07-01, the market regime was Bear / Higher Volatility and the regime selector chose 1-Month Reversal.","This is the final historical notebook signal, not a live recommendation."
+Material research limitation,The universe contains a fixed India 10 stock set and the candidate strategies were researched on the same broad historical sample.,"Survivorship, universe-selection and researcher-choice bias may remain despite walk-forward and bootstrap controls."
